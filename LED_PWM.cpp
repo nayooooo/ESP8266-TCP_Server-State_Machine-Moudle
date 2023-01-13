@@ -17,7 +17,7 @@
     控制函数
 ==============================================*/
 
-void ledInit(led_GPIOstruct* led)
+void ledInit(led_GPIOStruct* led)
 {
     delay(1000);
     pinMode(led->pin, led->GPIOmode);
@@ -32,7 +32,7 @@ void ledPwmInit(ledPwmDutyDir* led)
     analogWrite(led->pin, led->pwmDuty);
 }
 
-void ledFlash(led_GPIOstruct* led)
+void ledFlash(led_GPIOStruct* led)
 {
     if(led->state == LED_ON) led->state = LED_OFF;
     else led->state = LED_ON;

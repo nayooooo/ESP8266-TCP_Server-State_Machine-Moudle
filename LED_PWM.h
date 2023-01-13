@@ -42,7 +42,7 @@ typedef struct{
     uint8_t pin;
     uint8_t state;
     uint8_t GPIOmode;
-}led_GPIOstruct;
+}led_GPIOStruct;
 
 /* LED PWM */
 typedef struct{
@@ -59,35 +59,35 @@ typedef struct{
 ==============================================*/
 
 /**
- * @fn void ledInit(led_GPIOstruct* led)
+ * @fn void ledInit(led_GPIOStruct* led)
  * @brief 初始化数字LED
- * 
- * @param [led] led_GPIOstruct*
+ *
+ * @param [led] led_GPIOStruct*
  */
-void ledInit(led_GPIOstruct* led);
+void ledInit(led_GPIOStruct* led);
 
 /**
  * @fn void ledPwmInit(ledPwmDutyDir* led)
  * @brief 初始化模拟(PWM)LED
- * 
+ *
  * @param [led] ledPwmDutyDir*
  */
 void ledPwmInit(ledPwmDutyDir* led);
 
 /**
- * @fn void ledFlash(led_GPIOstruct* led)
+ * @fn void ledFlash(led_GPIOStruct* led)
  * @brief 切换LED状态
- * 
- * @param [led] led_GPIOstruct*
+ *
+ * @param [led] led_GPIOStruct*
  */
-void ledFlash(led_GPIOstruct* led);
+void ledFlash(led_GPIOStruct* led);
 
 /**
  * @fn void writeLedPwmDuty(ledPwmDutyDir* led)
  * @brief 更新模拟(PWM)LED状态
- * @detatils 该函数会先将传入的状态更新到LED，然后刷新led结构体中的参数
+ * @details 该函数会先将传入的状态更新到LED，然后刷新led结构体中的参数
  *           因此会出现参数不对应状态的现象
- * 
+ *
  * @param [led] ledPwmDutyDir*
  */
 void writeLedPwmDuty(ledPwmDutyDir* led);

@@ -26,7 +26,7 @@
 
 /* WiFi AP */
 typedef struct{
-    const char* ssid;  
+    const char* ssid;
     const char* password;
 }WiFi_AP_Infor;
 
@@ -60,7 +60,7 @@ uint32_t Data_Handle(String str);
 ==============================================*/
 
 // LED
-led_GPIOstruct __led = {
+led_GPIOStruct __led = {
     .pin = LED_PIN,
     .state = LED_OFF,
     .GPIOmode = OUTPUT
@@ -121,7 +121,7 @@ void loop() {
         distribute_Seat(&server, (WiFiClient*)&serverClients, &serverClient, MAX_TCPSERVICE_CLIENTS_NUM);
         receive_Request((WiFiClient*)&serverClients, (uint32_t*)&TCP_Act, MAX_TCPSERVICE_CLIENTS_NUM, Data_Handle);
         Polling_ClientInstruction((uint32_t*)&TCP_Act, MAX_TCPSERVICE_CLIENTS_NUM, (TCP_StateMachine*)TCP_State_Tab);
-        
+
         if(startPWM) {
             writeLedPwmDuty(&led);
             delay(LED_PWM_FLASH_STEP);
@@ -143,7 +143,7 @@ void WiFi_AP_Init(WiFi_AP_Infor* AP)
     Serial.println("============================");
     WiFi.mode(WIFI_AP);
     WiFi.softAP(AP->ssid, AP->password);
-    
+
     Serial.print("AP IP address: ");
     Serial.println(WiFi.softAPIP());
 }
